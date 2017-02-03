@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get 'books' => 'books#index'
   post 'books' => 'books#create'
+  delete 'books' => 'books#delete_all'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'books/:id' => 'books#show'
+  patch 'books/:id' => 'books#update'
+  delete 'books/:id' => 'books#destroy'
+
 end
