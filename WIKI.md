@@ -1,5 +1,26 @@
-**DATABASE**
+**RUBY ON RAILS**
+# Avantages Rails
+- Langage DRY (Don't Repeat Yourself) : helpers, models ...
+- Convention Over Configuration : le respect des conventions permet des raccourcis de configuration (ex: book et books)
+- Les gems sont des fonctions opensource pour un gain de temps énorme (devise, simple form, )
 
+# Helpers: simplifier le HTML
+module BooksHelper
+  def book_link book
+    html = "<a href='/books/#{book.id}'>".html_safe
+    if book.category
+        html += "#{book.title} (#{book.category.title})"
+    else
+        html += book.title
+    end
+    html+= "</a>".html_safe
+  end
+end
+
+# Gems : Librairies de fonctions
+bundle install : pour installer les gems disponibles
+
+**DATABASE**
 # Ce qui va générer dans le dossier db/migrate/ le fichier   table_books.rb, avec la date et l’heure à la place de l’astérisque.
 rails generate migration TableBooks
 
@@ -57,9 +78,14 @@ class Category < ActiveRecord::Base
 end
 # Utilité des liens
 Book.find(X).category
-Category.find(Y).books 
+Category.find(Y).books
 
-**RAILS**
+# Utilisation du scope, qui filtre la base de donnée: "where", "first" et "last" en DB
+books = Book.where(category_id: 1)
+puts books.first.title
+puts books.last.title
+
+**RAILS console**
 #Rails server launch
 rails s
 

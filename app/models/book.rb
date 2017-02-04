@@ -8,4 +8,6 @@ class Book < ActiveRecord::Base
   validates :title, uniqueness: {
     message: "Ce titre est déjà pris."
   }
+
+  scope :french, -> {where(category_id: 1)} 
 end

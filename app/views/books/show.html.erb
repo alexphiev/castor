@@ -1,8 +1,9 @@
-<h1><%= @book.title %></h1>
+<h1><%= @book.title_was %></h1>
 <p><a href="/books">Back to list</a></p>
 
 <%= form_tag "/books/#{@book.id}", method: "patch" do %>
-  <input type="text" name="title" />
+  <input type="text" name="title" value="<%= @book.title %>"/>
+  <p><%= @book.errors[:title].first %></p>
   <input type="submit" value="Change title" />
 <% end %>
 

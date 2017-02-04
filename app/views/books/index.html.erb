@@ -1,13 +1,7 @@
 <h1>Liste des livres</h1>
 <% @books.each do |book| %>
   <p>
-    <a href="/books/<%= book.id %>">
-      <% if book.category %>
-        <%= book.title %> (<%= book.category.title %>)
-      <% else %>
-        <%= book.title %>
-      <% end %>
-    </a>
+    <%= book_link book %>
   </p>
 <% end %>
 
@@ -24,3 +18,5 @@
 <%= form_tag "/books", method: "delete" do %>
   <input type="submit" value="Delete All Books"/>
 <%end%>
+
+<p <%= paginate @books %> >
