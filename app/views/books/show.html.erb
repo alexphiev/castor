@@ -1,11 +1,10 @@
-<h1><%= @book.title_was %></h1>
 <p><a href="/books">Back to list</a></p>
+<div><%= flash[:success] %></div>
+<div><%= flash[:fail] %></div>
 
-<%= form_tag "/books/#{@book.id}", method: "patch" do %>
-  <input type="text" name="title" value="<%= @book.title %>"/>
-  <p><%= @book.errors[:title].first %></p>
-  <input type="submit" value="Change title" />
-<% end %>
+<h1><%= @book.title_was %></h1>
+
+<%= render "books/form" %>
 
 <%= form_tag "/books/#{@book.id}", method: "delete" do %>
   <input type="submit" value="Delete book"/>

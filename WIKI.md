@@ -20,6 +20,14 @@ end
 # Gems : Librairies de fonctions
 bundle install : pour installer les gems disponibles
 
+# Routes : Lier les actions utilisateur (html) et les controleurs
+index, create, show, update, destroy, new, edit
+
+**HTML**
+# Render : Duplication de code HTML
+- Déplacer code à dupliquer dans un fichier partial _ form.html.erb
+- Utiliser la balise <%= render "dir/_ fichier.html.erb"%> 
+
 **DATABASE**
 # Ce qui va générer dans le dossier db/migrate/ le fichier   table_books.rb, avec la date et l’heure à la place de l’astérisque.
 rails generate migration TableBooks
